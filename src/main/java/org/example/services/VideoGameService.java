@@ -56,11 +56,11 @@ public class VideoGameService {
         return given()
                 .header("Accept", "application/json")
                 .contentType(ContentType.JSON)
-                .body(ConfigManager.getProperty("put.videogame.body")) // Read JSON from config
+                .body(ConfigManager.getProperty("put.videogame.body"))
                 .when()
-                .put(ConfigManager.getProperty("put.videogame.endpoint").replace("{id}", String.valueOf(id))) // Replace {id} with actual ID
+                .put(ConfigManager.getProperty("put.videogame.endpoint").replace("{id}", String.valueOf(id)))
                 .then()
-                .statusCode(200) // Assuming API returns 200 on success
+                .statusCode(200)
                 .extract()
                 .response();
     }
@@ -70,9 +70,9 @@ public class VideoGameService {
         return given()
                 .header("Accept", "application/json")
                 .when()
-                .delete(ConfigManager.getProperty("delete.videogame.endpoint").replace("{id}", String.valueOf(id))) // Replace {id} with actual ID
+                .delete(ConfigManager.getProperty("delete.videogame.endpoint").replace("{id}", String.valueOf(id)))
                 .then()
-                .statusCode(200) // Assuming API returns 200 on successful deletion
+                .statusCode(200)
                 .extract()
                 .response();
     }

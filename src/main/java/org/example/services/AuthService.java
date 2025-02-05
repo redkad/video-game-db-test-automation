@@ -15,11 +15,10 @@ public class AuthService {
                 .header("Accept", "application/json")
                 .contentType(ContentType.JSON)
                 .body("{ \"username\": \"" + ConfigManager.getProperty("username") + "\", "
-                        + "\"password\": \"" + ConfigManager.getProperty("password") + "\" }") // JSON Body
-                .when()
-                .post(ConfigManager.getProperty("auth.endpoint"))             // Endpoint from your cURL command
+                        + "\"password\": \"" + ConfigManager.getProperty("password") + "\" }")
+                .post(ConfigManager.getProperty("auth.endpoint"))
                 .then()
-                .statusCode(200)                       // Expect 200 OK
+                .statusCode(200)
                 .extract()
                 .response();
 
